@@ -9,8 +9,8 @@ function Card(props) {
 
   return (
     <div className="card">
-      <img className={randomClass} src={stickyTape} alt="sticky tape" />
       <img className={cardRandomClass} src={props.image} alt="country" />
+      <img className={randomClass} src={stickyTape} alt="sticky tape" />
       <div className="card--info">
         <div>
           <div className="card--location">

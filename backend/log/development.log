@@ -1943,3 +1943,129 @@ Completed 200 OK in 4ms (Views: 2.4ms | ActiveRecord: 0.1ms | Allocations: 2038)
 Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.5ms | Allocations: 3085)
 
 
+Started GET "/api/v1/holidays" for ::1 at 2023-02-22 16:23:05 +0000
+Processing by Api::V1::HolidaysController#index as HTML
+  [1m[36mHoliday Load (0.2ms)[0m  [1m[34mSELECT "holidays".* FROM "holidays"[0m
+  ↳ app/controllers/api/v1/holidays_controller.rb:8:in `index'
+Completed 200 OK in 3ms (Views: 2.7ms | ActiveRecord: 0.2ms | Allocations: 1416)
+
+
+Started GET "/api/v1/holidays" for ::1 at 2023-02-22 16:23:05 +0000
+Processing by Api::V1::HolidaysController#index as HTML
+  [1m[36mHoliday Load (0.1ms)[0m  [1m[34mSELECT "holidays".* FROM "holidays"[0m
+  ↳ app/controllers/api/v1/holidays_controller.rb:8:in `index'
+Completed 200 OK in 1ms (Views: 1.0ms | ActiveRecord: 0.1ms | Allocations: 1416)
+
+
+Started GET "/api/v1/holidays" for ::1 at 2023-02-22 16:24:27 +0000
+Processing by Api::V1::HolidaysController#index as HTML
+  [1m[36mHoliday Load (0.1ms)[0m  [1m[34mSELECT "holidays".* FROM "holidays"[0m
+  ↳ app/controllers/api/v1/holidays_controller.rb:8:in `index'
+Completed 200 OK in 1ms (Views: 1.0ms | ActiveRecord: 0.1ms | Allocations: 1416)
+
+
+Started GET "/api/v1/holidays" for ::1 at 2023-02-22 16:24:27 +0000
+Processing by Api::V1::HolidaysController#index as HTML
+  [1m[36mHoliday Load (0.1ms)[0m  [1m[34mSELECT "holidays".* FROM "holidays"[0m
+  ↳ app/controllers/api/v1/holidays_controller.rb:8:in `index'
+Completed 200 OK in 1ms (Views: 1.1ms | ActiveRecord: 0.1ms | Allocations: 1416)
+
+
+Started GET "/api/v1/holidays" for ::1 at 2023-02-22 16:24:31 +0000
+Processing by Api::V1::HolidaysController#index as HTML
+  [1m[36mHoliday Load (0.2ms)[0m  [1m[34mSELECT "holidays".* FROM "holidays"[0m
+  ↳ app/controllers/api/v1/holidays_controller.rb:8:in `index'
+Completed 200 OK in 2ms (Views: 2.0ms | ActiveRecord: 0.2ms | Allocations: 1416)
+
+
+Started GET "/api/v1/holidays" for ::1 at 2023-02-22 16:24:31 +0000
+Processing by Api::V1::HolidaysController#index as HTML
+  [1m[36mHoliday Load (0.1ms)[0m  [1m[34mSELECT "holidays".* FROM "holidays"[0m
+  ↳ app/controllers/api/v1/holidays_controller.rb:8:in `index'
+Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.1ms | Allocations: 1416)
+
+
+Started GET "/api/v1/holidays" for ::1 at 2023-02-22 16:24:35 +0000
+Processing by Api::V1::HolidaysController#index as HTML
+  [1m[36mHoliday Load (0.2ms)[0m  [1m[34mSELECT "holidays".* FROM "holidays"[0m
+  ↳ app/controllers/api/v1/holidays_controller.rb:8:in `index'
+Completed 200 OK in 4ms (Views: 3.2ms | ActiveRecord: 0.2ms | Allocations: 1416)
+
+
+Started GET "/api/v1/holidays" for ::1 at 2023-02-22 16:24:35 +0000
+Processing by Api::V1::HolidaysController#index as HTML
+  [1m[36mHoliday Load (0.1ms)[0m  [1m[34mSELECT "holidays".* FROM "holidays"[0m
+  ↳ app/controllers/api/v1/holidays_controller.rb:8:in `index'
+Completed 200 OK in 2ms (Views: 2.1ms | ActiveRecord: 0.1ms | Allocations: 1416)
+
+
+Started GET "/api/v1/holidays" for ::1 at 2023-02-22 16:25:29 +0000
+Processing by Api::V1::HolidaysController#index as HTML
+  [1m[36mHoliday Load (0.1ms)[0m  [1m[34mSELECT "holidays".* FROM "holidays"[0m
+  ↳ app/controllers/api/v1/holidays_controller.rb:8:in `index'
+Completed 200 OK in 1ms (Views: 1.2ms | ActiveRecord: 0.1ms | Allocations: 1416)
+
+
+Started GET "/api/v1/holidays" for ::1 at 2023-02-22 16:25:29 +0000
+Processing by Api::V1::HolidaysController#index as HTML
+  [1m[36mHoliday Load (0.1ms)[0m  [1m[34mSELECT "holidays".* FROM "holidays"[0m
+  ↳ app/controllers/api/v1/holidays_controller.rb:8:in `index'
+Completed 200 OK in 1ms (Views: 0.9ms | ActiveRecord: 0.1ms | Allocations: 1416)
+
+
+Started GET "/api/v1/holidays" for ::1 at 2023-02-22 16:25:54 +0000
+Processing by Api::V1::HolidaysController#index as HTML
+  [1m[36mHoliday Load (0.1ms)[0m  [1m[34mSELECT "holidays".* FROM "holidays"[0m
+  ↳ app/controllers/api/v1/holidays_controller.rb:8:in `index'
+Completed 200 OK in 1ms (Views: 1.0ms | ActiveRecord: 0.1ms | Allocations: 1416)
+
+
+Started GET "/api/v1/holidays" for ::1 at 2023-02-22 16:25:54 +0000
+Processing by Api::V1::HolidaysController#index as HTML
+  [1m[36mHoliday Load (0.1ms)[0m  [1m[34mSELECT "holidays".* FROM "holidays"[0m
+  ↳ app/controllers/api/v1/holidays_controller.rb:8:in `index'
+Completed 200 OK in 1ms (Views: 1.1ms | ActiveRecord: 0.1ms | Allocations: 1416)
+
+
+Started GET "/api/v1/holidays" for ::1 at 2023-02-22 16:26:01 +0000
+Started GET "/api/v1/holidays" for ::1 at 2023-02-22 16:26:01 +0000
+Processing by Api::V1::HolidaysController#index as HTML
+  [1m[36mHoliday Load (0.1ms)[0m  [1m[34mSELECT "holidays".* FROM "holidays"[0m
+Processing by Api::V1::HolidaysController#index as HTML
+  ↳ app/controllers/api/v1/holidays_controller.rb:8:in `index'
+Completed 200 OK in 2ms (Views: 1.8ms | ActiveRecord: 0.1ms | Allocations: 1862)
+
+
+  [1m[36mHoliday Load (0.1ms)[0m  [1m[34mSELECT "holidays".* FROM "holidays"[0m
+  ↳ app/controllers/api/v1/holidays_controller.rb:8:in `index'
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.1ms | Allocations: 2829)
+
+
+Started GET "/api/v1/holidays" for ::1 at 2023-02-22 16:26:02 +0000
+Started GET "/api/v1/holidays" for ::1 at 2023-02-22 16:26:02 +0000
+Processing by Api::V1::HolidaysController#index as HTML
+  [1m[36mHoliday Load (0.1ms)[0m  [1m[34mSELECT "holidays".* FROM "holidays"[0m
+  ↳ app/controllers/api/v1/holidays_controller.rb:8:in `index'
+Completed 200 OK in 4ms (Views: 3.4ms | ActiveRecord: 0.1ms | Allocations: 1425)
+
+
+Processing by Api::V1::HolidaysController#index as HTML
+  [1m[36mHoliday Load (0.1ms)[0m  [1m[34mSELECT "holidays".* FROM "holidays"[0m
+  ↳ app/controllers/api/v1/holidays_controller.rb:8:in `index'
+Completed 200 OK in 1ms (Views: 1.0ms | ActiveRecord: 0.1ms | Allocations: 1416)
+
+
+Started GET "/api/v1/holidays" for ::1 at 2023-02-22 16:26:59 +0000
+Started GET "/api/v1/holidays" for ::1 at 2023-02-22 16:26:59 +0000
+Processing by Api::V1::HolidaysController#index as HTML
+  [1m[36mHoliday Load (0.1ms)[0m  [1m[34mSELECT "holidays".* FROM "holidays"[0m
+  ↳ app/controllers/api/v1/holidays_controller.rb:8:in `index'
+Completed 200 OK in 1ms (Views: 1.0ms | ActiveRecord: 0.1ms | Allocations: 1436)
+
+
+Processing by Api::V1::HolidaysController#index as HTML
+  [1m[36mHoliday Load (0.0ms)[0m  [1m[34mSELECT "holidays".* FROM "holidays"[0m
+  ↳ app/controllers/api/v1/holidays_controller.rb:8:in `index'
+Completed 200 OK in 1ms (Views: 0.7ms | ActiveRecord: 0.0ms | Allocations: 1416)
+
+
