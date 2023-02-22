@@ -31,7 +31,6 @@
 }
 
 .card--sticky_tape_1 {
-  z-index: 1;
   width: 50px;
   position: absolute;
   top: 5%;
@@ -39,7 +38,6 @@
 }
 
 .card--sticky_tape_2 {
-  z-index: 1;
   transform: rotate(90deg);
   width: 50px;
   position: absolute;
