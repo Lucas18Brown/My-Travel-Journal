@@ -14,13 +14,23 @@ body {
   font-size: 14px;
 }
 
-.container {
+.container_1 {
   max-width: 600px;
   height: 93vh;
   margin: 30px auto;
   background-color: #FFFFFF;
   border-radius: 5px;
   overflow-y: scroll;
+  position: relative;
+}
+
+.container_2 {
+  max-width: 600px;
+  height: 93vh;
+  margin: 30px auto;
+  background-color: #FFFFFF;
+  border-radius: 5px;
+  overflow: hidden;
   position: relative;
 }
 

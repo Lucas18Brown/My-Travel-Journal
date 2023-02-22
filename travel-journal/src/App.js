@@ -1,46 +1,23 @@
-import React from "react";
-import { useState, useEffect } from "react";
-import Card from "./components/Card.jsx"
-import Navbar from "./components/Navbar.jsx"
-import Modal from "./components/Modal.jsx"
-import axios from 'axios'
-
-const API_URL = "http://localhost:3000/api/v1/holidays";
-
-function getAPIData() {
-  return axios.get(API_URL).then((response) => response.data)
-}
+import React, { useState } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Home from "./pages/Home"
+import Album from "./pages/Album"
+import Navbar from "./pages/components/Navbar"
+import Modal from "./pages/components/Modal"
 
 function App() {
-  const [holidays, setHolidays] = useState([])
   const [openModal, setOpenModal] = useState(false)
 
-  useEffect(() => {
-    let mounted = true;
-    getAPIData().then((items) => {
-      if (mounted) {
-        setHolidays(items);
-      }
-    });
-    return () => (mounted = false);
-  }, []);
-
-  const card = holidays.map( item =>
-    <Card
-      key={item.id}
-      {...item}
-    />
-  )
-
-  console.log(openModal)
-
   return (
-    <div className="container">
+    <div className={openModal ? "container_2" : "container_1"}>
       <Navbar openModal={setOpenModal} />
       {openModal && <Modal closeModal={setOpenModal}/>}
-      <section className="cards-section">
-        {card.reverse()}
-      </section>
+      <BrowserRouter>
+        <Routes>
+          <Route exact path="/" element={<Home />} />
+          <Route exact path="/album" element={<Album />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }

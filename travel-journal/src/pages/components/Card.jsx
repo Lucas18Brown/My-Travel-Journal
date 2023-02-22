@@ -1,5 +1,5 @@
 import React from "react";
-import stickyTape from "../assets/sticky-tape.png"
+import stickyTape from "../../assets/sticky-tape.png"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
 
