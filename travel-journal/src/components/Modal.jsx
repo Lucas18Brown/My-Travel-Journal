@@ -1,56 +1,83 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark, faLocationDot, faMapPin, faMapLocationDot, faAddressCard } from "@fortawesome/free-solid-svg-icons";
 
 function Modal({closeModal}) {
+  const [formData, setFormData] = useState({});
+
+  const handleInputChange = (event) => {
+    const target = event.target;
+    const value = target.value;
+    const name = target.name;
+
+    setFormData({
+      ...formData,
+      [name]: value
+    });
+    console.log(formData)
+  };
+
+
+  const handleSubmit = (event) => {
+    // event.preventDefault();
+    axios.post('http://localhost:3000/api/v1/holidays', formData)
+    .then(response => {
+      console.log(response.data);
+    })
+    .catch(error => {
+      console.error(error);
+    });
+  };
+
   return (
     <div className="modal">
       <div className="modal--container">
         <FontAwesomeIcon className="modal--X" icon={faXmark} onClick={() => closeModal(false)} />
         <h1 className="modal--title">New Location</h1>
-        <form className="modal--form">
+        <form className="modal--form" onSubmit={handleSubmit}>
           <section className="modal--location">
             <label for="title" className="label-glow">
               Title
               <FontAwesomeIcon icon={faMapPin} className="modal--location-icon" />
-              <input type="text" id="title" className="input-glow" placeholder="e.g. Liverpool" />
+              <input type="text" name="title" id="title" className="input-glow" placeholder="e.g. Liverpool" value={formData.title} onChange={handleInputChange}/>
             </label>
 
             <label for="location" className="label-glow">
               Location
               <FontAwesomeIcon icon={faLocationDot} className="modal--location-icon" />
-              <input type="text" id="location" className="input-glow" placeholder="e.g. England" />
+              <input type="text" name="location" id="location" className="input-glow" placeholder="e.g. England" onChange={handleInputChange}/>
             </label>
           </section>
           <section className="modal--google_url">
             <label for="google-url" className="label-glow">
               Google Maps
               <FontAwesomeIcon icon={faMapLocationDot} className="modal--location-icon" />
-              <input type="url" id="google-url" className="input-glow" placeholder="https..." />
+              <input type="url" name="google_map_url" id="google-url" className="input-glow" placeholder="https..." onChange={handleInputChange}/>
             </label>
           </section>
           <section className="modal--date">
             <label for="start-date" className="label-glow">
               Start date
-              <input type="date" id="start-date" className="input-glow" placeholder="Start date..." />
+              <input type="date" name="start_date" id="start-date" className="input-glow" placeholder="Start date..." onChange={handleInputChange}/>
             </label>
 
             <label for="end-date" className="label-glow">
               End date
-              <input type="date" id="end-date" className="input-glow" placeholder="End date..." />
+              <input type="date" name="end_date" id="end-date" className="input-glow" placeholder="End date..." onChange={handleInputChange}/>
             </label>
           </section>
           <section className="modal--description">
             <label for="description" className="label-glow">
               Description
               <FontAwesomeIcon icon={faAddressCard} className="modal--location-icon" />
-              <input type="text" id="description" className="input-glow" placeholder="Description..." />
+              <input type="text" name="description" id="description" className="input-glow" placeholder="Description..." onChange={handleInputChange}/>
             </label>
           </section>
           <section className="">
             <label for="img" className="label-glow">
               Image
-              <input type="file" id="img" className="input-glow" placeholder="Image..." />
+              <input type="text" name="image" id="img" className="input-glow" placeholder="Image..." onChange={handleInputChange}/>
             </label>
           </section>
           <input type="submit" value="Add Location" className="modal--submit"/>

@@ -18,9 +18,9 @@ class Api::V1::HolidaysController < ApplicationController
     @holiday = Holiday.new(holiday_params)
 
     if @holiday.save
-      render json: @holiday, status: :created, location: @holiday
+      render json: @holidays, status: :created, location: @holidays
     else
-      render json: @holiday.errors, status: :unprocessable_entity
+      render json: @holidays.errors, status: :unprocessable_entity
     end
   end
 
@@ -47,6 +47,6 @@ class Api::V1::HolidaysController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def holiday_params
-      params.require(:holiday).permit(:title, :location, :google_map_url, :start_date, :end_date, :description)
+      params.require(:holiday).permit(:title, :location, :google_map_url, :start_date, :end_date, :description, :image)
     end
 end

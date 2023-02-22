@@ -3,7 +3,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
 
 function Card(props) {
-  console.log(props)
   return (
     <div className="card">
       <img className="card--img" src={props.image} alt="country" />

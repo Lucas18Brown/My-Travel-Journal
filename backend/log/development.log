@@ -905,3 +905,67 @@ Processing by Api::V1::HolidaysController#index as HTML
 Completed 200 OK in 1ms (Views: 1.1ms | ActiveRecord: 0.1ms | Allocations: 1227)
 
 
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateHolidays (20230222111036)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "holidays" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "location" varchar, "google_map_url" varchar, "start_date" varchar, "end_date" varchar, "description" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230222111036"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateAlbums (20230222111059)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "albums" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230222111059"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddReferenceToHolidays (20230222111701)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "holidays" ADD "album_id" integer[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_holidays_on_album_id" ON "holidays" ("album_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aholidays" ("id" integer NOT NULL PRIMARY KEY, "title" varchar DEFAULT NULL, "location" varchar DEFAULT NULL, "google_map_url" varchar DEFAULT NULL, "start_date" varchar DEFAULT NULL, "end_date" varchar DEFAULT NULL, "description" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "album_id" integer DEFAULT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aholidays_on_album_id" ON "aholidays" ("album_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "aholidays" ("id","title","location","google_map_url","start_date","end_date","description","created_at","updated_at","album_id")
+                     SELECT "id","title","location","google_map_url","start_date","end_date","description","created_at","updated_at","album_id" FROM "holidays"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "holidays"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TABLE "holidays" ("id" integer NOT NULL PRIMARY KEY, "title" varchar DEFAULT NULL, "location" varchar DEFAULT NULL, "google_map_url" varchar DEFAULT NULL, "start_date" varchar DEFAULT NULL, "end_date" varchar DEFAULT NULL, "description" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "album_id" integer DEFAULT NULL, CONSTRAINT "fk_rails_4ed677e110"
+FOREIGN KEY ("album_id")
+  REFERENCES "albums" ("id")
+)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_holidays_on_album_id" ON "holidays" ("album_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "holidays" ("id","title","location","google_map_url","start_date","end_date","description","created_at","updated_at","album_id")
+                     SELECT "id","title","location","google_map_url","start_date","end_date","description","created_at","updated_at","album_id" FROM "aholidays"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE "aholidays"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230222111701"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddImageToHolidays (20230222113928)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "holidays" ADD "image" varchar[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230222113928"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2023-02-22 15:02:21.796840"], ["updated_at", "2023-02-22 15:02:21.796840"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHoliday Create (0.3ms)[0m  [1m[32mINSERT INTO "holidays" ("title", "location", "google_map_url", "start_date", "end_date", "description", "created_at", "updated_at", "album_id", "image") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["title", "Copenhagen"], ["location", "Denmark"], ["google_map_url", "https://www.google.com/maps/place/Copenhagen"], ["start_date", "1 Aug, 2022"], ["end_date", "3 aug, 2022"], ["description", "Copenhagen is a unique city, characterized by its canals, cycling culture, strong economy, and happy locals. It is actually known as being the happiest city in the world, due to its shorter workdays, free college tuition, more vacation days, and levels of personal interaction!"], ["created_at", "2023-02-22 15:02:32.640587"], ["updated_at", "2023-02-22 15:02:32.640587"], ["album_id", nil], ["image", "https://images.unsplash.com/photo-1513622470522-26c3c8a854bc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHoliday Create (0.1ms)[0m  [1m[32mINSERT INTO "holidays" ("title", "location", "google_map_url", "start_date", "end_date", "description", "created_at", "updated_at", "album_id", "image") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["title", "Reyjkavik"], ["location", "Iceland"], ["google_map_url", "https://www.google.com/maps/place/Reykjav%C3%ADk,+Iceland/@64.1319782,-21.9162021,11.8z/data=!4m6!3m5!1s0x48d674b9eedcedc3:0xec912ca230d26071!8m2!3d64.146582!4d-21.9426354!16zL20vMDZmbGc"], ["start_date", "12 July, 2022"], ["end_date", "15 July, 2022"], ["description", "Amazing scenery, felt like an alien world, especially the blue lagoon!"], ["created_at", "2023-02-22 15:02:32.642546"], ["updated_at", "2023-02-22 15:02:32.642546"], ["album_id", nil], ["image", "https://images.unsplash.com/photo-1630316710923-60d1c6935503?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHoliday Create (0.1ms)[0m  [1m[32mINSERT INTO "holidays" ("title", "location", "google_map_url", "start_date", "end_date", "description", "created_at", "updated_at", "album_id", "image") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["title", "Edinburgh"], ["location", "Scotland"], ["google_map_url", "https://www.google.com/maps/place/Edinburgh"], ["start_date", "2 Aug, 2021"], ["end_date", "5 aug, 2021"], ["description", "Edinburgh is an amazing city, characterized by its great scenery and food. We went shopping, ate alot of food! and explored the various sites, looking at the castle from the outside (it was too expensive!)."], ["created_at", "2023-02-22 15:02:32.643796"], ["updated_at", "2023-02-22 15:02:32.643796"], ["album_id", nil], ["image", "https://images.unsplash.com/photo-1535448033526-c0e85c9e6968?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
