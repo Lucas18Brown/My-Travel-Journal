@@ -1,11 +1,16 @@
 import React from "react";
+import stickyTape from "../assets/sticky-tape.png"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
 
 function Card(props) {
+  const randomClass = Math.random() < 0.5 ? 'card--sticky_tape_1' : 'card--sticky_tape_2';
+  const cardRandomClass = randomClass === 'card--sticky_tape_1' ? "card--img_2" : "card--img_1"
+
   return (
     <div className="card">
-      <img className="card--img" src={props.image} alt="country" />
+      <img className={randomClass} src={stickyTape} alt="sticky tape" />
+      <img className={cardRandomClass} src={props.image} alt="country" />
       <div className="card--info">
         <div>
           <div className="card--location">
@@ -13,7 +18,7 @@ function Card(props) {
             <h3>{props.location.toUpperCase()}</h3>
             <a href={props.google_map_url}>View on Google Maps</a>
           </div>
-          <h1 className="card--title">{props.title}</h1>
+          <h1 className="card--title">{props.title.charAt(0).toUpperCase() + props.title.slice(1)}</h1>
         </div>
         <p className="card--date"><strong>{props.start_date} - {props.end_date}</strong></p>
         <p>{props.description}</p>

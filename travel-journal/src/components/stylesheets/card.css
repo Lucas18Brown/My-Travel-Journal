@@ -9,15 +9,42 @@
   align-items: center;
   padding: 25px 0px;
   border-bottom: 1px solid #f55a5a8c;
+  position: relative;
 }
 
-.card--img {
+.card--img_1 {
+  transform: rotate(-2deg);
   width: 130px;
   height: 100%;
   border-radius: 5px;
   object-fit: cover;
   object-position: center;
-  box-shadow: 0 0 15px #2b283a3b;
+}
+
+.card--img_2 {
+  transform: rotate(2deg);
+  width: 130px;
+  height: 100%;
+  border-radius: 5px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.card--sticky_tape_1 {
+  z-index: 1;
+  width: 50px;
+  position: absolute;
+  top: 5%;
+  left: -2%;
+}
+
+.card--sticky_tape_2 {
+  z-index: 1;
+  transform: rotate(90deg);
+  width: 50px;
+  position: absolute;
+  top: 5%;
+  left: 18%;
 }
 
 .card--info {

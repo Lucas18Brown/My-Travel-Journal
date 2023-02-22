@@ -3,8 +3,6 @@ import { useState, useEffect } from "react";
 import Card from "./components/Card.jsx"
 import Navbar from "./components/Navbar.jsx"
 import Modal from "./components/Modal.jsx"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlus} from "@fortawesome/free-solid-svg-icons";
 import axios from 'axios'
 
 const API_URL = "http://localhost:3000/api/v1/holidays";
@@ -34,13 +32,14 @@ function App() {
     />
   )
 
+  console.log(openModal)
+
   return (
     <div className="container">
-      <Navbar />
-      <FontAwesomeIcon className="app--add" onClick={() => setOpenModal(true)}  icon={faPlus} />
+      <Navbar openModal={setOpenModal} />
       {openModal && <Modal closeModal={setOpenModal}/>}
       <section className="cards-section">
-        {card}
+        {card.reverse()}
       </section>
     </div>
   );
