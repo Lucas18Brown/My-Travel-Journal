@@ -1,2 +1,2 @@
-# My-Travel-Journal
-A journal of all the places you have been, with pciture albums for each location!
+# Travel-Journal
+Keeping track of where you have been, with info and images of each trip.

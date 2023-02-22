@@ -1,0 +1,122 @@
+.modal {
+  backdrop-filter: blur(5px);
+  width: 600px;
+  height: 86vh;
+  position: absolute;
+}
+
+.modal--container {
+  width: 400px;
+  background-color: #F55A5A;
+  border-radius: 5px;
+  margin: 100px auto;
+  box-shadow: 1px 1px 8px rgba(138, 138, 138, 0.2);
+  padding: 25px;
+  font-size: 15px;
+  color: #FFFFFF;
+}
+
+.modal--form {
+  width: 300px;
+  margin: 25px auto;
+}
+
+input, label {
+  display: block;
+  font-family: 'Caveat';
+}
+
+.input-glow {
+  font-size: 15px;
+  margin: 0;
+  border: none;
+  outline: 0;
+  background-color: #2b283a00;
+}
+
+.label-glow {
+  color: #F55A5A;
+  background-color: #FFFFFF;
+  padding: 5px 5px;
+  font-size: 12px;
+  font-weight: 700;
+  margin: 10px 0px;
+  display: inline-block;
+  transition: border 0.3s; /* Add a smooth transition effect to the label glow */
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+  border: 2px solid #F55A5A;
+  border-radius: 5px;
+  box-shadow: 0 0 8px rgba(97, 96, 96, 0.2);
+}
+
+.label-glow:focus-within {
+  box-shadow: 0 0 15px #2b283a3b;
+  border: 2px solid #2B283A;
+}
+
+.modal--X {
+  color: #FFFFFF;
+  font-size: 20px;
+  position: absolute;
+  top: 15%;
+  right: 16%;
+  cursor: pointer;
+}
+
+.modal--date {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.modal--date label {
+  width: 140px;
+}
+
+.modal--title {
+  text-align: center;
+  font-weight: 400;
+}
+
+.modal--location {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal--location label, .modal--location input  {
+  width: 140px;
+}
+
+.modal--location-icon {
+  position: absolute;
+  right: 10%;
+  top: 30%;
+  font-size: 15px;
+}
+
+.modal--submit {
+  color: #F55A5A;
+  font-size: 12px;
+  font-weight: 700;
+  background-color: #FFFFFF;
+  border: 2px solid #F55A5A;
+  border-radius: 5px;
+  padding: 10px;
+  box-shadow: 0 0 8px rgba(97, 96, 96, 0.2);
+  cursor: pointer;
+  transition: border 0.3s;
+  margin: 20px auto;
+}
+
+.modal--submit:hover {
+  box-shadow: 0 0 15px #2b283a3b;
+  border: 2px solid #2B283A;
+}
+
+::placeholder {
+  font-family: 'Caveat';
+}

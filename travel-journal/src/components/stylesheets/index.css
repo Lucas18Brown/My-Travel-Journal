@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Bodoni+Moda:opsz,wght@6..96,400;6..96,700&family=Caveat:wght@400;700&family=Inter:wght@400;500;600;700&family=Lobster+Two:wght@400;700&family=Pacifico&display=swap');
+@import "./card.css";
+@import "./modal.css";
+@import "./navbar.css";
+
+* {
+  margin: 0;
+}
+
+body {
+  background-color: #E5E5E5;
+  font-family: 'Caveat';
+  color: #2B283A;
+  font-size: 14px;
+}
+
+.container {
+  max-width: 600px;
+  height: 93vh;
+  margin: 30px auto;
+  background-color: #FFFFFF;
+  border-radius: 5px;
+  overflow-y: scroll;
+  position: relative;
+}
+
+.app--add {
+  color: #FFFFFF;
+  position: absolute;
+  top: 17px;
+  right: 30px;
+  font-size: 20px;
+  cursor: pointer;
+  z-index: 1;
+}
