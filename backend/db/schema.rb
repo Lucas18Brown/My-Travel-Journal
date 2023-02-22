@@ -20,8 +20,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_22_113928) do
     t.string "title"
     t.string "location"
     t.string "google_map_url"
-    t.integer "start_date"
-    t.integer "end_date"
+    t.string "start_date"
+    t.string "end_date"
     t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
