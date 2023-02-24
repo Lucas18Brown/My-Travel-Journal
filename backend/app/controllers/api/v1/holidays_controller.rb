@@ -1,5 +1,5 @@
 class Api::V1::HolidaysController < ApplicationController
-  before_action :set_holiday, only: %i[ show update destroy ]
+  before_action :set_holiday, only: %i[show destroy]
 
   # GET /holidays
   def index
@@ -8,9 +8,9 @@ class Api::V1::HolidaysController < ApplicationController
     render json: @holidays
   end
 
-  # GET /holidays/1
   def show
-    render json: @holiday
+    @holiday = Holiday.find(params[:id])
+    render json: HolidaySerializer.new(@holiday).serializable_hash[:data][:attributes]
   end
 
   # POST /holidays
@@ -19,15 +19,6 @@ class Api::V1::HolidaysController < ApplicationController
 
     if @holiday.save
       render json: @holidays, status: :created, location: @holidays
-    else
-      render json: @holidays.errors, status: :unprocessable_entity
-    end
-  end
-
-  # PATCH/PUT /holidays/1
-  def update
-    if @holiday.update(holiday_params)
-      render json: @holiday
     else
       render json: @holiday.errors, status: :unprocessable_entity
     end
@@ -40,13 +31,13 @@ class Api::V1::HolidaysController < ApplicationController
 
   private
 
-    # Use callbacks to share common setup or constraints between actions.
-    def set_holiday
-      @holiday = Holiday.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_holiday
+    @holiday = Holiday.find(params[:id])
+  end
 
-    # Only allow a list of trusted parameters through.
-    def holiday_params
-      params.require(:holiday).permit(:title, :location, :google_map_url, :start_date, :end_date, :description, :image)
-    end
+  # Only allow a list of trusted parameters through.
+  def holiday_params
+    params.require(:holiday).permit(:title, :location, :google_map_url, :start_date, :end_date, :description, :image, pictures: [])
+  end
 end

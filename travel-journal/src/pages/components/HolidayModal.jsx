@@ -3,32 +3,61 @@ import axios from "axios"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark, faLocationDot, faMapPin, faMapLocationDot, faAddressCard } from "@fortawesome/free-solid-svg-icons";
 
-function Modal({closeModal}) {
+function HolidayModal({closeModal}) {
   const [formData, setFormData] = useState({});
+  const [ selectedImages, setSelectedImages ] = useState([])
 
   const handleInputChange = (event) => {
     const target = event.target;
-    const value = target.value;
+    const value = target.type === 'file' ? target.files : target.value;
     const name = target.name;
 
     setFormData({
       ...formData,
       [name]: value
     });
+
     console.log(formData)
+
+    // handle image uploads
+    if (target.type === 'file') {
+      setSelectedImages(target.files)
+    }
+
 
   };
 
 
-  const handleSubmit = () => {
-    axios.post('http://localhost:3000/api/v1/holidays', formData)
+  const handleSubmit = (e) => {
+
+    e.preventDefault()
+    console.log(selectedImages[0])
+
+    const formDataWithImages = new FormData();
+    for (const [key, value] of Object.entries(formData)) {
+      if (key === 'pictures') {
+        // Add selected images to formData
+        for (let i = 0; i < selectedImages.length; i++) {
+          formDataWithImages.append('holiday[pictures][]', selectedImages[i])
+          console.log(formDataWithImages)
+        }
+      } else {
+        formDataWithImages.append(`holiday[${[key]}]`, value);
+      }
+    }
+
+
+    console.log(selectedImages);
+
+    axios.post('http://localhost:3000/api/v1/holidays', formDataWithImages)
     .then(response => {
       console.log(response.data);
     })
     .catch(error => {
       console.error(error);
     });
-  };
+
+  }
 
   return (
     <div className="modal">
@@ -74,10 +103,16 @@ function Modal({closeModal}) {
               <input type="text" name="description" id="description" className="input-glow" placeholder="Description..." onChange={handleInputChange}/>
             </label>
           </section>
-          <section className="">
+          <section>
             <label htmlFor="img" className="label-glow">
               Image
               <input type="text" name="image" id="img" className="input-glow" placeholder="Image..." onChange={handleInputChange}/>
+            </label>
+          </section>
+          <section>
+            <label htmlFor="pictures" className="label-glow">
+              Pictures
+              <input type="file" name="pictures" id="pictures" className="input-glow" multiple onChange={handleInputChange}/>
             </label>
           </section>
           <input type="submit" value="Add Location" className="modal--submit"/>
@@ -87,4 +122,4 @@ function Modal({closeModal}) {
   )
 }
 
-export default Modal;
+export default HolidayModal;

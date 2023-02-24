@@ -30,6 +30,11 @@
   object-position: center;
 }
 
+.card--a {
+  text-decoration: none;
+  color: #2B283A;
+}
+
 .card--sticky_tape_1 {
   width: 50px;
   position: absolute;

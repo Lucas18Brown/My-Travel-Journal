@@ -1,0 +1,22 @@
+.picture {
+  /* width: 300px; */
+  margin: 20px;
+}
+
+.picture--img_1 {
+  transform: rotate(-2deg);
+  width: 240px;
+  height: 100%;
+  border-radius: 5px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.picture--img_2 {
+  transform: rotate(2deg);
+  width: 240px;
+  height: 100%;
+  border-radius: 5px;
+  object-fit: cover;
+  object-position: center;
+}

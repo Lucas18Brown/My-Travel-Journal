@@ -1,5 +1,6 @@
 import React from "react";
 import stickyTape from "../../assets/sticky-tape.png"
+import { Link } from "react-router-dom"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
 
@@ -18,7 +19,9 @@ function Card(props) {
             <h3>{props.location.toUpperCase()}</h3>
             <a href={props.google_map_url}>View on Google Maps</a>
           </div>
-          <h1 className="card--title">{props.title.charAt(0).toUpperCase() + props.title.slice(1)}</h1>
+          <Link className="card--a" to="album" onClick={ () => props.holidayId(props.id) } >
+            <h1 className="card--title">{props.title.charAt(0).toUpperCase() + props.title.slice(1)}</h1>
+          </Link>
         </div>
         <p className="card--date"><strong>{props.start_date} - {props.end_date}</strong></p>
         <p>{props.description}</p>

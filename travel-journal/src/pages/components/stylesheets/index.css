@@ -2,6 +2,8 @@
 @import "./card.css";
 @import "./modal.css";
 @import "./navbar.css";
+@import "./picture.css";
+@import "./album.css";
 
 * {
   margin: 0;
