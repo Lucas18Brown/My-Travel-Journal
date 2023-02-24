@@ -8,7 +8,7 @@ function getAPIData() {
   return axios.get(API_URL).then((response) => response.data)
 }
 
-function Home() {
+function Home({changeHolidayId}) {
   const [holidays, setHolidays] = useState([])
 
   useEffect(() => {
@@ -23,6 +23,7 @@ function Home() {
 
   const card = holidays.map( item =>
     <Card
+      holidayId={changeHolidayId}
       key={item.id}
       {...item}
     />
