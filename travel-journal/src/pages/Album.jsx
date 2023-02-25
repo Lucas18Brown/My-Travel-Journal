@@ -22,13 +22,9 @@ function Album({holidayId}) {
     return () => (mounted = false);
   }, [holidayId]);
 
-  console.log(pictures)
-
   const album = pictures.map( (pictureUrl, index) =>
       <Picture key={index} url={pictureUrl} />
   )
-
-  // console.log(album)
 
   return (
     <div className="album">

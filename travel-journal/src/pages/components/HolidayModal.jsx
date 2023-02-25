@@ -30,24 +30,17 @@ function HolidayModal({closeModal}) {
 
   const handleSubmit = (e) => {
 
-    e.preventDefault()
-    console.log(selectedImages[0])
-
     const formDataWithImages = new FormData();
     for (const [key, value] of Object.entries(formData)) {
       if (key === 'pictures') {
         // Add selected images to formData
         for (let i = 0; i < selectedImages.length; i++) {
           formDataWithImages.append('holiday[pictures][]', selectedImages[i])
-          console.log(formDataWithImages)
         }
       } else {
         formDataWithImages.append(`holiday[${[key]}]`, value);
       }
     }
-
-
-    console.log(selectedImages);
 
     axios.post('http://localhost:3000/api/v1/holidays', formDataWithImages)
     .then(response => {

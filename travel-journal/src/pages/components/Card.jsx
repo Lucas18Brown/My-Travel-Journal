@@ -19,7 +19,7 @@ function Card(props) {
             <h3>{props.location.toUpperCase()}</h3>
             <a href={props.google_map_url}>View on Google Maps</a>
           </div>
-          <Link className="card--a" to="album" onClick={ () => props.holidayId(props.id) } >
+          <Link className="card--a" to={`holidays/${props.id}`} onClick={ () => props.holidayId(props.id) } >
             <h1 className="card--title">{props.title.charAt(0).toUpperCase() + props.title.slice(1)}</h1>
           </Link>
         </div>

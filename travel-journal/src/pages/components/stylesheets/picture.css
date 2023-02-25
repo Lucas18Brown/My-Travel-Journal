@@ -1,6 +1,7 @@
 .picture {
   /* width: 300px; */
   margin: 20px;
+  position: relative;
 }
 
 .picture--img_1 {
@@ -19,4 +20,19 @@
   border-radius: 5px;
   object-fit: cover;
   object-position: center;
+}
+
+.picture--sticky_tape_1 {
+  width: 100px;
+  position: absolute;
+  top: -8%;
+  left: -8%;
+}
+
+.picture--sticky_tape_2 {
+  transform: rotate(90deg);
+  width: 100px;
+  position: absolute;
+  top: -8%;
+  right: -8%;
 }

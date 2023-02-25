@@ -9,7 +9,6 @@ function App() {
   const [openModal, setOpenModal] = useState(false)
   const [ holidayId, setHolidayId ] = useState(1)
 
-  console.log(holidayId)
   return (
     <div className={openModal ? "container_2" : "container_1"}>
       <Navbar openModal={setOpenModal} />
@@ -17,7 +16,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route index element={<Home changeHolidayId={setHolidayId}/>} />
-          <Route exact path="album" element={<Album holidayId={holidayId} />} />
+          <Route exact path={`holidays/${holidayId}`} element={<Album holidayId={holidayId} />} />
         </Routes>
       </BrowserRouter>
     </div>

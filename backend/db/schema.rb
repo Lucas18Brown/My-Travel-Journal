@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_24_100213) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_25_192542) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -39,11 +39,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_24_100213) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
-  create_table "albums", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "holidays", force: :cascade do |t|
     t.string "title"
     t.string "location"
@@ -53,12 +48,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_24_100213) do
     t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "album_id"
     t.string "image"
-    t.index ["album_id"], name: "index_holidays_on_album_id"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "holidays", "albums"
 end
