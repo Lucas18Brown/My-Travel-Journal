@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Navbar from "./components/Navbar"
 import Card from "./components/Card"
 import axios from 'axios'
 
@@ -8,7 +9,7 @@ function getAPIData() {
   return axios.get(API_URL).then((response) => response.data)
 }
 
-function Home({changeHolidayId}) {
+function Home(props) {
   const [holidays, setHolidays] = useState([])
 
   useEffect(() => {
@@ -23,16 +24,19 @@ function Home({changeHolidayId}) {
 
   const card = holidays.map( item =>
     <Card
-      holidayId={changeHolidayId}
+      holidayId={props.changeHolidayId}
       key={item.id}
       {...item}
     />
   )
 
   return (
-      <section className="cards-section">
-        {card.reverse()}
-      </section>
+      <div className="container--nav">
+        <Navbar  openModal={props.openModal} />
+        <section className="cards-section">
+          {card.reverse()}
+        </section>
+      </div>
   );
 }
 

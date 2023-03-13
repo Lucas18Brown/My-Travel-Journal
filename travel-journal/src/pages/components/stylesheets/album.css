@@ -1,4 +1,31 @@
-.album {
+.album--holiday {
+  position: relative;
+  height: 370px;
+  border-bottom: 2px solid #F55A5A;
+}
+
+.album--image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  /* filter: blur(1px); */
+}
+
+.album--title {
+  position: absolute;
+  top: 20%;
+  width: 100%;
+  text-align: center;
+  text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.2);
+}
+
+.album--name {
+  font-size: 100px;
+
+}
+
+.album--pictures {
   display: grid;
   grid-template-columns: 1fr 1fr;
   padding: 20px;
